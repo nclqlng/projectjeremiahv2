@@ -1,0 +1,110 @@
+/* User Layout Styles for user.blade.php */
+
+body {
+    background-color: var(--nu-blue-lighter);
+    color: #222;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 2rem 0;
+    background: var(--nu-blue-lighter);
+}
+
+footer {
+    background: var(--nu-blue);
+    color: var(--nu-light);
+    padding: 2rem 0 1.5rem 0;
+    border-top: 4px solid var(--nu-gold);
+    margin-top: auto;
+    font-size: 1rem;
+}
+
+footer .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+footer a {
+    color: var(--nu-gold);
+    transition: color 0.2s;
+    text-decoration: underline;
+}
+footer a:hover {
+    color: var(--nu-light);
+}
+
+.footer-link {
+    color: var(--nu-gold);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.footer-link:hover {
+    color: var(--nu-light);
+    text-decoration: underline;
+}
+
+footer i.fab, footer i.fas {
+    color: var(--nu-gold);
+    transition: color 0.2s;
+}
+footer a[aria-label]:hover i.fab, 
+footer a[aria-label]:hover i.fas {
+    color: var(--nu-light);
+}
+
+footer hr {
+    margin: 1.5rem 0 1rem 0;
+    border-color: var(--nu-light);
+    opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+    footer .row {
+        flex-direction: column;
+    }
+    footer .col-md-4, 
+    footer .col-md-3, 
+    footer .col-md-2 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--nu-blue) !important;
+    border-bottom: 4px solid var(--nu-gold);
+}
+.navbar-brand span {
+    color: var(--nu-light);
+    font-weight: bold;
+}
+.navbar-nav .nav-link {
+    color: var(--nu-light) !important;
+    margin: 0 1rem;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover {
+    color: var(--nu-gold) !important;
+}
+.navbar-brand img {
+    height:55px; 
+    width: auto; 
+    margin-right: 10px;
+}

@@ -1,0 +1,120 @@
+.motivation-toast {
+    position: fixed;
+    right: 16px;
+    bottom: 32px;
+    z-index: 99999;
+    background: transparent;
+    box-shadow: none;
+    animation: none;
+    min-width: 0;
+    max-width: 90vw;
+    width: auto;
+    border: none;
+    padding: 0;
+}
+.motivation-toast .motivation-flex {
+    background: #fffbe9;
+    border-radius: 18px 18px 24px 24px;
+    box-shadow: 0 8px 32px 0 rgba(255, 204, 51, 0.18), 0 4px 24px 0 #ffe9a7, 0 1.5px 0 #f7e08e;
+    border: 1.5px solid #ffe9a7;
+    padding: 22px 32px 22px 24px;
+    gap: 20px;
+    align-items: center;
+    min-width: 320px;
+    max-width: 400px;
+    transform: rotate(-2deg);
+    position: relative;
+    font-family: 'Indie Flower', 'Comic Sans MS', cursive, sans-serif;
+}
+.motivation-toast .motivation-flex::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 18px;
+    background: #ffe066;
+    border-radius: 8px 8px 12px 12px;
+    box-shadow: 0 2px 6px #ffe9a7;
+    z-index: 2;
+}
+.motivation-toast-close {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    color: #b89c3a;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.motivation-toast-close:hover {
+    opacity: 1;
+}
+.motivation-img-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 48px;
+    width: 48px;
+    background: #fffbe9;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px #ffe9a7;
+    padding: 2px;
+    margin-top: 6px;
+}
+.motivation-bulldog {
+    height: 38px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 2px 6px #ffe9a7);
+}
+.motivation-text {
+    display: block;
+    font-size: 1.13em;
+    line-height: 1.5;
+    text-align: left;
+    max-width: 300px;
+    color: #6b4e13;
+    font-family: inherit;
+}
+@media (max-width: 600px) {
+    .motivation-toast {
+        right: 4px;
+        bottom: 8px;
+    }
+    .motivation-toast .motivation-flex {
+        flex-direction: column;
+        gap: 10px;
+        min-width: 0;
+        max-width: 90vw;
+        padding: 16px 8px 16px 8px;
+    }
+    .motivation-text {
+        text-align: center;
+        max-width: 90vw;
+    }
+}
+.motivation-toast-in {
+    animation: toastIn 0.7s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+.motivation-toast-out {
+    animation: toastOut 0.6s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+@keyframes toastIn {
+    0% { opacity: 0; transform: translateY(60px) scale(0.9); }
+    60% { opacity: 1; transform: translateY(-10px) scale(1.05); }
+    80% { transform: translateY(4px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes toastOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.9); }
+}
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap'); 
