@@ -33,6 +33,7 @@ body, .welcome-header-hero, .welcome-main-title, .welcome-contact, .welcome-unde
     margin-top: 0 !important;
     
 }
+
 .welcome-header-hero .container {
     z-index: 2;
     position: relative;
@@ -40,7 +41,6 @@ body, .welcome-header-hero, .welcome-main-title, .welcome-contact, .welcome-unde
     margin: 0 auto;
     padding: 70px 20px 0 20px;
 }
-
 
 .welcome-main-title {
     color: var(--nu-blue);
@@ -50,6 +50,7 @@ body, .welcome-header-hero, .welcome-main-title, .welcome-contact, .welcome-unde
     margin-bottom: 12px;
     letter-spacing: 1px;
     white-space: nowrap;
+    text-shadow: 0 4px 12px rgba(44, 62, 94, 0.18), 0 1.5px 0 #fff;
 }
 
 .welcome-underline {
@@ -170,8 +171,8 @@ body, .welcome-header-hero, .welcome-main-title, .welcome-contact, .welcome-unde
 }
 .guidance-awareness-underline {
     height: 4px;
-    width: 120px;
-    background: #ffd54f;
+    width: 140px;
+    background: var(--nu-gold);
     margin: 0 auto 70px auto;
 }
 .guidance-awareness-flex {
