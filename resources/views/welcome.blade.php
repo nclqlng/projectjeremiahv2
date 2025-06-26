@@ -83,7 +83,7 @@
     <h2>Guidance Awareness Month</h2>
     <div class="guidance-awareness-underline"></div>
     <div class="guidance-awareness-flex">
-        <iframe class="guidance-awareness-video" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D1043939594363886" width="450" height="280" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        <iframe class="guidance-awareness-video" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D1043939594363886" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         <div class="guidance-awareness-text">
             <p>
                 As we celebrate the Guidance Awareness Month on this month of May, let's retrospect on the highlights of the services and initiatives provided by NU Laguna Center for Guidance Services.<br><br>

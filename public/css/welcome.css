@@ -44,7 +44,7 @@ body, .welcome-header-hero, .welcome-main-title, .welcome-contact, .welcome-unde
 
 .welcome-main-title {
     color: var(--nu-blue);
-    font-size: 48px;
+    font-size: 50px;
     font-weight:600;
     line-height: 1.1;
     margin-bottom: 12px;
@@ -54,7 +54,7 @@ body, .welcome-header-hero, .welcome-main-title, .welcome-contact, .welcome-unde
 
 .welcome-underline {
     width: 100%;
-    max-width: 815px;
+    max-width: 850px;
     height: 4px;
     background: var(--nu-gold);
     margin: 12px 0 24px 0;
@@ -177,8 +177,8 @@ body, .welcome-header-hero, .welcome-main-title, .welcome-contact, .welcome-unde
 .guidance-awareness-flex {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 150px;
+    align-items: center;
+    gap:60px;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
@@ -189,17 +189,24 @@ body, .welcome-header-hero, .welcome-main-title, .welcome-contact, .welcome-unde
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    width: 550px;
+    height: 280px;
 }
 .guidance-awareness-text {
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 2px 16px rgba(0,0,0,0.07);
     padding: 32px 36px;
-    max-width: 420px;
     font-size: 1.08rem;
     color: #555;
     text-align: center;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    width: 550px;
+    height: 450px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .guidance-awareness-text span {
     color: #3b438b;
