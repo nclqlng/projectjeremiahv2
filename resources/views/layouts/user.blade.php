@@ -11,42 +11,52 @@
     @yield('styles')
 </head>
 <body>
-   <nav class="navbar navbar-static" id="navbar-static" style="width:100%;padding:0;margin:0;min-height:unset;">
-        <div class="container py-2" style="min-height:unset;">
-            <a class="navbar-brand d-flex align-items-center" href="/" style="padding:0;">
-                <img src="/nu logo.png" alt="NU Laguna Logo" style="height:50px;width:auto;margin-right:10px;">
-                <span class="d-flex flex-column lh-sm" style="font-size:0.9rem;line-height:1.1;">
-                    <span>NU LAGUNA</span>
-                    <span>CENTER FOR</span>
-                    <span>GUIDANCE SERVICES</span>
-                </span>
-            </a>
-            <ul class="navbar-nav ms-auto d-flex flex-row" style="gap:0.5rem;align-items:center;margin-bottom:0;">
+   <nav class="navbar navbar-expand-md navbar-static" id="navbar-static" style="width:100%;padding:0;margin:0;min-height:unset;">
+    <div class="container py-2" style="min-height:unset;">
+        <a class="navbar-brand d-flex align-items-center" href="/" style="padding:0;">
+            <img src="/nu logo.png" alt="NU Laguna Logo" style="height:50px;width:auto;margin-right:10px;">
+            <span class="d-flex flex-column lh-sm" style="font-size:0.9rem;line-height:1.1;">
+                <span>NU LAGUNA</span>
+                <span>CENTER FOR</span>
+                <span>GUIDANCE SERVICES</span>
+            </span>
+        </a>
+        <button class="navbar-toggler custom-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStaticLinks" aria-controls="navbarStaticLinks" aria-expanded="false" aria-label="Toggle navigation" style="background:transparent; border:none; box-shadow:none;">
+            <i data-lucide="menu" style="color:#fff; width:2em; height:2em;"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarStaticLinks">
+            <ul class="navbar-nav ms-auto d-flex flex-md-row flex-column" style="gap:0.5rem;align-items:center;margin-bottom:0;">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('user.hotline') }}">Emergency Hotlines</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('user.services') }}">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('user.freedomwall.add') }}">e-Hayag</a></li>
             </ul>
         </div>
-    </nav>
-     <nav class="navbar" id="navbar-sticky" style="width:100%;padding:0;margin:0;min-height:unset;">
-        <div class="container py-2" style="min-height:unset;">
-            <a class="navbar-brand d-flex align-items-center" href="/" style="padding:0;">
-                <img src="/nu logo.png" alt="NU Laguna Logo" style="height:50px;width:auto;margin-right:10px;">
-                <span class="d-flex flex-column lh-sm" style="font-size:0.9rem;line-height:1.1;">
-                    <span>NU LAGUNA</span>
-                    <span>CENTER FOR</span>
-                    <span>GUIDANCE SERVICES</span>
-                </span>
-            </a>
-            <ul class="navbar-nav ms-auto d-flex flex-row" style="gap:0.5rem;align-items:center;margin-bottom:0;">
+    </div>
+</nav>
+<nav class="navbar navbar-expand-md" id="navbar-sticky" style="width:100%;padding:0;margin:0;min-height:unset;">
+    <div class="container py-2" style="min-height:unset;">
+        <a class="navbar-brand d-flex align-items-center" href="/" style="padding:0;">
+            <img src="/nu logo.png" alt="NU Laguna Logo" style="height:50px;width:auto;margin-right:10px;">
+            <span class="d-flex flex-column lh-sm" style="font-size:0.9rem;line-height:1.1;">
+                <span>NU LAGUNA</span>
+                <span>CENTER FOR</span>
+                <span>GUIDANCE SERVICES</span>
+            </span>
+        </a>
+        <button class="navbar-toggler custom-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStickyLinks" aria-controls="navbarStickyLinks" aria-expanded="false" aria-label="Toggle navigation" style="background:transparent; border:none; box-shadow:none;">
+            <i data-lucide="menu" style="color:#fff; width:2em; height:2em;"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarStickyLinks">
+            <ul class="navbar-nav ms-auto d-flex flex-md-row flex-column" style="gap:0.5rem;align-items:center;margin-bottom:0;">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('user.hotline') }}">Emergency Hotlines</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('user.services') }}">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('user.freedomwall.add') }}">e-Hayag</a></li>
             </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <main>
         <div class="page-container">

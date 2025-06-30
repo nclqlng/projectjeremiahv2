@@ -1,7 +1,9 @@
 @extends('layouts.user')
 
 @section('styles')
-    @vite('resources/css/styles.css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQD8R1pWIUyo1q9Wl+0I1hKf6UksdQRVvoxMfooAo8y" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQD8R1pWIUyo1q9Wl+0I1hKf6UksdQRVvoxMfooAo8y" crossorigin="anonymous">
+
 @endsection
 
 @section('content')

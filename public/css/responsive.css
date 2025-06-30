@@ -1,0 +1,68 @@
+/* responsive.css - Shared responsive hero/header structure for all pages */
+
+.responsive-header-hero {
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    max-width: 100vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0;
+    padding: 6rem 2rem;
+    color: var(--nu-light, #fff);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.responsive-header-hero .responsive-header-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.responsive-header-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.responsive-header-underline {
+    width: 80px;
+    height: 4px;
+    background: var(--nu-gold, #FFCC33);
+    margin: 0 auto 1.5rem auto;
+    border-radius: 2px;
+}
+
+.responsive-header-subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    color: var(--nu-light, #fff);
+}
+
+@media (max-width: 768px) {
+    .responsive-header-hero {
+        padding: 3rem 1rem;
+    }
+    .responsive-header-title {
+        font-size: 2.1rem;
+    }
+    .responsive-header-subtitle {
+        font-size: 1rem;
+    }
+} 

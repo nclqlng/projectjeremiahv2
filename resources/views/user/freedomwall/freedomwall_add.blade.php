@@ -124,7 +124,7 @@
                     <!-- You Matter -->
                  <div class="sidebar-card you-matter-card text-center">
                     <div class="heart-gradient-circle mx-auto mb-3">
-                        <i data-lucide="heart"></i>
+                        <i data-lucide="heart" style="width: 48px; height: 48px;  color:rgb(255, 255, 255);"></i>
                     </div>
                     <h3 class="you-matter-title mt-2">You Matter</h3>
                     <p class="you-matter-text">
@@ -134,10 +134,12 @@
                 </div>
             </div>
         </div>
+       
     </div>
 </section>
 
-    <x-alert />
+
+
 @endsection
 
 @section('body-class', 'ehayag-page')

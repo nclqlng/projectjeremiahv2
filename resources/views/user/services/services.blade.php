@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="/css/e-hayag.css">
     <link rel="stylesheet" href="{{ asset('css/services.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQD8R1pWIUyo1q9Wl+0I1hKf6UksdQRVvoxMfooAo8y" crossorigin="anonymous">
+
 @endsection
 
 @section('content')
@@ -15,19 +17,19 @@
     @endphp
 
     <!-- Hero Section -->
-                                        <div class="services-header-hero">
-                                            <div class="container animate-hero-content">
-                                                <h1 class="services-main-title">
-                                                    Welcome to Our <span class="highlight">Counseling Center</span>
-                                                </h1>
-                                                <div class="ehayag-underline"></div>
-                                                <p class="hero-subtitle">Empowering students through professional guidance and support</p>
-                                                <div class="hero-buttons">
-                                                    <a href="#services-offered" class="hero-btn primary">Explore Services</a>
-                                                    <a href="#consultation-section" class="hero-btn secondary">Book Consultation</a>
-                                                </div>
-                                            </div>
-                                        </div>
+    <div class="services-header-hero">
+         <div class="container animate-hero-content">
+             <h1 class="services-main-title">
+                 Welcome to Our <span class="highlight">Counseling Center</span>
+            </h1>
+        <div class="ehayag-underline"></div>
+                <p class="hero-subtitle">Empowering students through professional guidance and support</p>
+                <div class="hero-buttons">
+                 <a href="#services-offered" class="hero-btn primary">Explore Services</a>
+                 <a href="#consultation-section" class="hero-btn secondary">Book Consultation</a>
+                </div>
+        </div>
+    </div>
 
     <div class="container">
         <section class="services-section counselors-section-new" id="services-offered">
@@ -106,56 +108,56 @@
                 </div>
             </div>
 
-            <div class="row g-4" id="counselors-grid" style="display: none; margin-top: 3rem;">
-                @foreach($counselors as $counselor)
-                    <div class="col-lg-4 col-md-6">
-                        <a href="{{ route('user.counselors.details', $counselor->id) }}" class="counselor-card-link-new d-block h-100">
-                            <div class="counselor-card-new h-100">
-                                <div class="counselor-avatar-wrapper-new">
-                                    <img src="{{ asset($counselor->image) }}" alt="{{ $counselor->name }}" class="counselor-avatar-new">
-                                    <span class="counselor-badge">Expert</span>
-                                </div>
-                                <div class="counselor-info-new">
-                                    <h3 class="counselor-name-new">{{ $counselor->name }}</h3>
-                                    <p class="counselor-position-new">{{ $counselor->position }}</p>
-                                    <p class="counselor-department-new">{{ $counselor->college }}</p>
-                                </div>
+        <div class="row g-4" id="counselors-grid" style="display: none; margin-top: 3rem;">
+            @foreach($counselors as $counselor)
+                <div class="col-lg-4 col-md-6">
+                    <a href="{{ route('user.counselors.details', $counselor->id) }}" class="counselor-card-link-new d-block h-100">
+                        <div class="counselor-card-new h-100">
+                            <div class="counselor-avatar-wrapper-new">
+                                <img src="{{ asset($counselor->image) }}" alt="{{ $counselor->name }}" class="counselor-avatar-new">
+                                <span class="counselor-badge">Expert</span>
                             </div>
+                            <div class="counselor-info-new">
+                                <h3 class="counselor-name-new">{{ $counselor->name }}</h3>
+                                <p class="counselor-position-new">{{ $counselor->position }}</p>
+                                <p class="counselor-department-new">{{ $counselor->college }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    <!-- CONSULTATION LINKS -->
+    <section class="services-section counselors-section-new" id="consultation-section">
+        <div class="counselor-header">
+            <div class="service-card-icon">
+                <i data-lucide="calendar" class="pulse-icon"></i>
+            </div>
+            <h2 class="services-section-title">Schedule Your Consultation</h2>
+            <p class="services-subtitle services-subtitle--counselor">Take the first step towards positive change. Book your consultation today</p>
+        </div>
+
+        <div class="row g-6 justify-content-center">
+            @foreach($consultations as $consultation)
+                <div class="col-lg-13">
+                    <div class="consultation-card-item-new h-100">
+                        <div class="service-card-icon">
+                            <i data-lucide="brain"></i>
+                        </div>
+                        <h3 class="consultation-card-item-title-new">{{ $consultation->name }}</h3>
+                        <p class="consultation-card-item-desc-new">{{ strip_tags($consultation->description) }}</p>
+                        <a href="{{ $consultation->request_link }}" target="_blank" class="consultation-button-new">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                            <span>Request Consultation</span>
                         </a>
                     </div>
-                @endforeach
-            </div>
-        </section>
-
-        <!-- CONSULTATION LINKS -->
-        <section class="services-section counselors-section-new" id="consultation-section">
-            <div class="counselor-header">
-                <div class="service-card-icon">
-                    <i data-lucide="calendar" class="pulse-icon"></i>
                 </div>
-                <h2 class="services-section-title">Schedule Your Consultation</h2>
-                <p class="services-subtitle services-subtitle--counselor">Take the first step towards positive change. Book your consultation today</p>
-            </div>
-
-            <div class="row g-6 justify-content-center">
-                @foreach($consultations as $consultation)
-                    <div class="col-lg-13">
-                        <div class="consultation-card-item-new h-100">
-                            <div class="service-card-icon">
-                                <i data-lucide="brain"></i>
-                            </div>
-                            <h3 class="consultation-card-item-title-new">{{ $consultation->name }}</h3>
-                            <p class="consultation-card-item-desc-new">{{ strip_tags($consultation->description) }}</p>
-                            <a href="{{ $consultation->request_link }}" target="_blank" class="consultation-button-new">
-                                <i data-lucide="external-link" class="w-5 h-5"></i>
-                                <span>Request Consultation</span>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </section>
-    </div>
+            @endforeach
+        </div>
+    </section>
+</div>
 
 @endsection
 

@@ -1,9 +1,10 @@
 @extends('layouts.user')
 
 @section('styles')
-    @vite('resources/css/styles.css')
     <link rel="stylesheet" href="/css/welcome.css">
     <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/services.css') }}">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQD8R1pWIUyo1q9Wl+0I1hKf6UksdQRVvoxMfooAo8y" crossorigin="anonymous">
@@ -82,19 +83,76 @@
     </div>
 </div>
 
-<!-- Guidance Awareness Month Section -->
-<div class="guidance-awareness-section">
-    <h2>Guidance Awareness Month</h2>
-    <div class="guidance-awareness-underline"></div>
-    <div class="guidance-awareness-flex">
-        <iframe class="guidance-awareness-video" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D1043939594363886" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        <div class="guidance-awareness-text">
-            <p>
-                As we celebrate the Guidance Awareness Month on this month of May, let's retrospect on the highlights of the services and initiatives provided by NU Laguna Center for Guidance Services.<br><br>
+<!-- Guidance Awareness Month Header  -->
+<div class="guidance-header text-center mb-4" style="margin-top: 6rem;">
+    <div class="service-card-icon mb-2">
+        <i data-lucide="info" class="pulse-icon"></i>
+    </div>
+    <h2 class="services-section-title">Guidance Awareness Month</h2>
+    <p class="services-subtitle services-subtitle--counselor">
+        Last May, we celebrated mental health and the NU Laguna Center for Guidance Services. Thank you for helping us build a supportive community! 
+    </p>
+</div>
+
+<!-- Lucide Icons CDN and Init -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons();
+</script>
+
+<!-- Guidance Awareness Month Section-->
+<div class="guidance-awareness-social-post card mb-5 guidance-post-wide">
+    <div class="row g-0 align-items-stretch">
+        <div class="col-md-6 d-flex align-items-center justify-content-center guidance-post-left-bg">
+            <div class="guidance-browser-frame">
+                <div class="guidance-browser-bar">
+                    <span class="guidance-browser-dot guidance-browser-dot-yellow"></span>
+                    <span class="guidance-browser-dot guidance-browser-dot-blue"></span>
+                    <div class="flex-fill"></div>
+                    <span class="guidance-browser-url"></span>
+                </div>
+                <div class="guidance-browser-content">
+                    <iframe class="guidance-awareness-video w-100" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D1043939594363886" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- Post Content -->
+        <div class="col-md-6 d-flex flex-column justify-content-between guidance-post-content">
+            <div class="guidance-fb-header">
+                <img src="/bulldog.svg" alt="NU Laguna Logo" class="rounded-circle" style="width: 44px; height: 44px; object-fit: cover; border: 2px solid #3b438b;">
+                <div>
+                    <div class="guidance-fb-page">NU Laguna Center for Guidance Services <i class="bi bi-patch-check-fill guidance-fb-verified" title="Verified"></i></div>
+                    <div class="guidance-fb-meta">Posted · May 2025 <i class="bi bi-globe2" title="Public"></i></div>
+                </div>
+            </div>
+            <div class="guidance-fb-divider"></div>
+
+            <div class="guidance-fb-caption">
+                As we celebrate the <span class="fw-semibold" style="color: #3b438b;">Guidance Awareness Month</span> on this month of May, let's retrospect on the highlights of the services and initiatives provided by NU Laguna Center for Guidance Services.<br><br>
                 Let this month serve as a reminder for all of us of the significance of promoting mental health and renewing our commitment to highly relevant programs for NU Laguna community.<br><br>
                 Together, we can create a safe environment where everyone can flourish!<br>
                 <span style="color: #3b438b; font-size: 1.5rem;">💙🎗️</span>
-            </p>
+            </div>
+
+            <!-- Reactions Row -->
+            <div class="guidance-fb-reactions-row">
+                <span class="guidance-fb-reaction heart"><i class="bi bi-heart-fill"></i></span>
+                <span class="guidance-fb-reaction like"><i class="bi bi-hand-thumbs-up-fill"></i></span>
+                <span class="guidance-fb-reactions-count">18</span>
+            </div>
+            <div class="guidance-fb-divider"></div>
+
+            <div class="guidance-fb-actions">
+                <span><i class="bi bi-hand-thumbs-up"></i> Like</span>
+                <span><i class="bi bi-chat"></i> Comment</span>
+                <span><i class="bi bi-share"></i> Share</span>
+            </div>
+
+            
+            <div class="guidance-fb-comment-box">
+                <img src="/bulldog.svg" alt="Your Profile" class="rounded-circle" style="width: 36px; height: 36px; object-fit: cover; border: 1.5px solid #3b438b;">
+                <input type="text" class="guidance-fb-comment-input" placeholder="Write a comment...">
+            </div>
         </div>
     </div>
 </div>
