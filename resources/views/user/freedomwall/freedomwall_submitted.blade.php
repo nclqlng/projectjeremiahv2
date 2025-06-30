@@ -1,136 +1,146 @@
 @extends('layouts.user')
-
 @section('styles')
-    @vite('resources/css/styles.css')
+<link rel="stylesheet" href="/css/e-hayag.css">
+<link rel="stylesheet" href="{{ asset('css/animations.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
 @endsection
 
 @section('content')
+    <!-- Thank You Hero Section -->
+    <section class="ehayag-header-hero submitted-hero position-relative">
+        <div class="header-hero-dark-overlay"></div>
+        <div class="header-hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center animate-hero-content">
+            <div class="icon-badge mb-3">
+                <i data-lucide="check-circle" style="width: 48px; height: 48px; color: #FFCC33;"></i>
+            </div>
+            <h1 class="ehayag-main-title text-white text-shadow">Thank You!</h1>
+            <div class="ehayag-underline"></div>
+            <p class="ehayag-hero-subtitle text-white text-shadow">Your message has been received with care.</p>
+        </div>
+    </section>
 
-<!-- Floating decorative shapes -->
-<div class="floating-shapes">
-    <div class="shape">
-        <i class="fas fa-graduation-cap fa-3x" style="color: rgba(240,196,25,0.1);"></i>
-    </div>
-    <div class="shape">
-        <i class="fas fa-heart fa-2x" style="color: rgba(240,196,25,0.1);"></i>
-    </div>
-    <div class="shape">
-        <i class="fas fa-lightbulb fa-2x" style="color: rgba(240,196,25,0.1);"></i>
-    </div>
-</div>
-
-<div class="container my-5 page-container">
-    <!-- Enhanced Welcome Header -->
-    <div class="welcome-header">
-        <h1 class="welcome-title">Welcome to the Guidance Office</h1>
-        <p class="welcome-subtitle">
-            Your trusted partner in academic success, personal growth, and mental wellness.<br>
-            We're here to support every step of your journey with compassion and expertise.
-        </p>
-    </div>
-
-    <!-- Enhanced Card Options -->
-    <div class="row justify-content-center g-4">
-        <!-- Services -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card option-card services-card">
-                <div class="card-content text-center">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-hands-helping fa-4x"></i>
-                    </div>
-                    <h4 class="card-title">Comprehensive Services</h4>
-                    <p class="card-description">
-                        Discover our range of counseling services, academic support programs, and peer mediation designed to help you thrive in every aspect of your educational journey.
+    <!-- Main Content -->
+    <section class="submitted-main-section services-section">
+        <div class="submitted-container">
+            
+            <!-- Success Message Card -->
+            <div class="success-message-card">
+                <div class="success-icon">
+                    <i data-lucide="check-circle" style="width: 24px; height: 24px; color: #10b981;"></i>
+                </div>
+                <div class="success-content">
+                    <h3 class="success-title">Message Submitted Successfully</h3>
+                    <p class="success-description">
+                        Thank you for sharing your thoughts with us. Your message has been safely received and will be 
+                        reviewed by our guidance counselors. Remember, you are heard, you are valued, and you are not alone.
                     </p>
-                    <a class="btn card-btn" href="{{ route('user.services') }}">Explore Services</a>
                 </div>
             </div>
-        </div>
 
-        <!-- e-Hayag -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card option-card ehayag-card">
-                <div class="card-content text-center">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-comments fa-4x"></i>
+            <!-- What's Next Section -->
+            <div class="whats-next-section">
+                <h2 class="whats-next-title">What's Next?</h2>
+                
+                <div class="next-actions-grid">
+                    <!-- Explore Services -->
+                    <div class="action-card">
+                        <div class="action-icon explore-icon">
+                            <i data-lucide="layers" style="width: 32px; height: 32px;"></i>
+                        </div>
+                        <h4 class="action-title">Explore Services</h4>
+                        <p class="action-description">
+                            Discover our comprehensive guidance and counseling services designed to support your journey.
+                        </p>
+                        <a href="{{ route('user.services') }}" class="action-button">
+                            View Services →
+                        </a>
                     </div>
-                    <h4 class="card-title">e-Hayag Platform</h4>
-                    <p class="card-description">
-                        Your safe, anonymous digital space to share thoughts, concerns, and experiences. Express yourself freely without judgment in our secure environment.
-                    </p>
-                    <a class="btn card-btn" href="{{ route('user.freedomwall.add') }}">Share Anonymously</a>
+
+                    <!-- Share Again -->
+                    <div class="action-card">
+                        <div class="action-icon share-icon">
+                            <i data-lucide="message-square" style="width: 32px; height: 32px;"></i>
+                        </div>
+                        <h4 class="action-title">Share Again</h4>
+                        <p class="action-description">
+                            Feel free to return anytime to share more thoughts or feelings. We're always here to listen.
+                        </p>
+                        <a href="{{ route('user.freedomwall.add') }}" class="action-button">
+                            Write Again →
+                        </a>
+                    </div>
+
+                    <!-- Need Help -->
+                    <div class="action-card">
+                        <div class="action-icon help-icon">
+                            <i data-lucide="phone" style="width: 32px; height: 32px;"></i>
+                        </div>
+                        <h4 class="action-title">Need Help?</h4>
+                        <p class="action-description">
+                            Access emergency hotlines for immediate support and assistance when you need it most.
+                        </p>
+                        <a href="{{ route('user.hotline') }}" class="action-button help-button">
+                            Get Help →
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Emergency Hotline -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card option-card emergency-card">
-                <div class="card-content text-center">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-phone-alt fa-4x"></i>
-                    </div>
-                    <h4 class="card-title">Emergency Support</h4>
-                    <p class="card-description">
-                        Access 24/7 mental health crisis support and emergency resources. Professional help is always available when you need immediate assistance.
-                    </p>
-                    <a class="btn card-btn" href="{{ route('user.hotline') }}">Get Help Now</a>
-                    </div>
+            <!-- You're Not Alone Section -->
+            <div class="not-alone-section">
+                <div class="heart-icon">
+                    <i data-lucide="heart" style="width: 48px; height: 48px; fill: #333e8f; color: #333e8f;"></i>
+                </div>
+                <h3 class="not-alone-title">You're Not Alone</h3>
+                <p class="not-alone-description">
+                    Every step forward is progress. Every conversation matters. You're not alone on 
+                    this journey. The NU Laguna Center for Guidance Services is here to support you 
+                    every step of the way.
+                </p>
             </div>
-        </div>
-    </div>
 
-    <!-- Additional motivational section -->
-    <div class="text-center mt-5 pt-4">
-        <p class="lead" style="color: #e8e8e8; font-style: italic; opacity: 0.8;">
-            "Every step forward is progress. Every conversation matters. You're not alone on this journey."
-        </p>
-    </div>
-</div>
+        </div>
+    </section>
 
 @endsection
 
-
-
-
-{{-- @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            Swal.fire({
-                title: 'Hello!',
-                text: 'This is a test popup.',
-                icon: 'info',
-                denyButtonText: 'Next Page',
-                cancelButtonText: 'Cancel'
-            });
-        });
-    </script>
-@endsection
- --}}
+@section('body-class', 'submitted-page')
 
 @section('scripts')
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="{{ asset('js/animations.js') }}"></script>
     <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @if($randomQuote)
         <script>
-            Swal.fire({
-                title: '{{ $randomQuote->quote }}',
-                text: '{{ $randomQuote->author }}',
-                icon: 'success',
-                showCancelButton: true,
-                /*showDenyButton: true, */
-                confirmButtonText: 'Need someone to talk?',
-               /*  denyButtonText: 'Need help?',
-                cancelButtonText: 'Cancel' */
-            }).then((result) => {
-                if (result.isConfirmed) { 
-                    window.location.href = "{{ route('user.services') }}";
-                } else if (result.isDenied) {
-                    
-                }
-            });
+            // Show quote popup after a short delay
+            setTimeout(() => {
+                Swal.fire({
+                    title: '{{ $randomQuote->author }} says:',
+                    text: '{{ $randomQuote->quote }}',
+                    icon: 'success',
+                    showCancelButton: true,
+                    showDenyButton: true,
+                    confirmButtonText: 'Thank you',
+                    denyButtonText: 'Need help?',
+                    cancelButtonText: 'Close',
+                    confirmButtonColor: '#333e8f',
+                    denyButtonColor: '#ef4444'
+                }).then((result) => {
+                    if (result.isConfirmed) { 
+                        // Scroll to not alone section
+                        document.querySelector('.not-alone-section').scrollIntoView({ 
+                            behavior: 'smooth' 
+                        });
+                    } else if (result.isDenied) {
+                        window.location.href = "{{ route('user.hotline') }}";
+                    }
+                });
+            }, 1500);
         </script>
     @endif
 @endsection

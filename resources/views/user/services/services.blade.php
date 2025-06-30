@@ -1,649 +1,212 @@
-{{-- @extends('layouts.user')
-    
-@section('styles')
-    @vite('resources/css/styles.css')
-@endsection
-
-@section('content')
-
-<div class="container my-5 page-container">
-
-    <!-- SERVICES OFFERED -->
-    <div class="card shadow-lg rounded p-4 mb-5 bg-white">
-        <h2 class="mb-4 text-gold text-center">Services Offered</h2>
-        <div class="row" id="services-list">
-            @foreach($services as $index => $service)
-                <div class="col-md-4 mb-4 {{ $index >= 3 ? 'hidden-service' : '' }}">
-                    <a href="{{ route('user.services.details', $service->id) }}" class="text-decoration-none">
-                        <div class="card service-card h-100 p-3 text-center border-0 shadow-sm page-container">
-                            <h4 class="text-blue mb-2">{{ $service->name }}</h4>
-                            <p class="text-muted">{{ Str::limit(strip_tags($service->description), 120, '...') }}</p>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        </div>
-
-        @if(count($services) > 3)
-            <div class="text-center mt-3">
-                <button id="toggle-services-btn" class="btn bg-gold text-blue fw-bold px-4 py-2">Show All Services</button>
-            </div>
-        @endif
-    </div>
-
-
-    <!-- COUNSELOR INFORMATION -->
-    <div class="card shadow-lg rounded p-4 mb-5 bg-white">
-        <h2 class="mb-4 text-gold text-center">Meet Our Counselors</h2>
-
-        <div id="counselors-container" class="mt-3" style="display: none;">
-            <div class="row">
-                @foreach($counselors as $counselor)
-                    <div class="col-md-4 mb-4 page-container">
-                        <div class="card counselor-card text-center border-0 shadow-sm p-3 h-100">
-                            <a href="{{ route('user.counselors.details', $counselor->id) }}" class="text-decoration-none text-dark">
-                                <img src="{{ asset('storage/' . $counselor->image) }}" alt="{{ $counselor->name }}" class="teacher-avatar mb-3">
-                                <h4 class="text-blue">{{ $counselor->name }}</h4>
-                                <p class="text-muted">{{ $counselor->position }}</p>
-                                <p class="text-muted">{{ $counselor->college }}</p>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
-        <div class="text-center mt-3">
-            <button id="toggle-counselors-btn" class="btn bg-gold text-blue fw-bold px-4 py-2">Meet Our Counselors</button>
-        </div>
-    </div>
-
-
-    <!-- CONSULTATION LINKS -->
-    <div class="card shadow-lg rounded p-4 bg-white">
-        <h2 class="mb-4 text-gold text-center">Consultation Links</h2>
-        <div class="row justify-content-center">
-            @foreach($consultations as $consultation)
-                <div class="col-md-6 mb-4">
-                    <div class="card border-0 consultation-link shadow-sm p-4 text-center">
-                        <h4 class="text-blue mb-2">{{ $consultation->name }}</h4>
-                        <p class="text-muted">{{ $consultation->description }}</p>
-                        <a href="{{ $consultation->request_link }}" target="_blank" class="btn bg-blue text-gold fw-bold px-4">
-                            Request Here <i class="fas fa-external-link-alt ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-
-</div>
-
-@endsection
-
-
-@section('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const servicesBtn = document.getElementById('toggle-services-btn');
-        const hiddenServices = document.querySelectorAll('.hidden-service');
-
-        if (servicesBtn) {
-            servicesBtn.addEventListener('click', function () {
-                const isHidden = hiddenServices[0].style.display === 'none' || hiddenServices[0].style.display === '';
-                hiddenServices.forEach(service => {
-                    service.style.display = isHidden ? 'block' : 'none';
-                });
-                servicesBtn.textContent = isHidden ? 'Show Less' : 'Show All Services';
-            });
-        }
-
-        const counselorsBtn = document.getElementById('toggle-counselors-btn');
-        const container = document.getElementById('counselors-container');
-
-        counselorsBtn.addEventListener('click', function () {
-            container.style.display = 'block';
-            counselorsBtn.style.display = 'none';
-        });
-    });
-</script>
-@endsection
-
- --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{-- DIIFERENT UI --}}
-
 @extends('layouts.user')
     
 @section('styles')
-    @vite('resources/css/styles.css')
-    <style>
-        :root {
-            --gold: #ffd700;
-            --blue: #1e40af;
-            --light-blue: #dbeafe;
-            --dark-blue: #1e3a8a;
-            --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            --gradient-blue: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            --shadow-soft: 0 10px 25px rgba(0,0,0,0.1);
-            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .page-hero {
-            background: var(--gradient-blue);
-            color: white;
-            padding: 4rem 0;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="25" cy="75" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="25" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-            border: none;
-            margin-bottom: 3rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .section-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .section-header {
-            background: var(--gradient-gold);
-            color: var(--dark-blue);
-            padding: 2rem;
-            margin: -1.5rem -1.5rem 2rem -1.5rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 10px solid var(--gold);
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 15px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-gold);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--gold);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover .service-icon {
-            background: var(--gradient-gold);
-            transform: rotate(360deg);
-        }
-
-        .counselor-card {
-            background: white;
-            border-radius: 20px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hidden-service {
-    display: none;
-}
-
-        .counselor-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-gold);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .counselor-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .counselor-card:hover {
-            transform: translateY(-10px) rotateY(5deg);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .teacher-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--gold);
-            transition: all 0.3s ease;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .counselor-card:hover .teacher-avatar {
-            border-color: var(--blue);
-            transform: scale(1.1);
-        }
-
-        .consultation-link {
-            background: linear-gradient(135deg, white 0%, #f8fafc 100%);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .consultation-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
-            transition: left 0.6s;
-        }
-
-        .consultation-link:hover::before {
-            left: 100%;
-        }
-
-        .consultation-link:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .btn-primary {
-            background: var(--gradient-blue);
-            border: none;
-            border-radius: 25px;
-            padding: 12px 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--gradient-gold);
-            color: var(--dark-blue);
-            border: none;
-            border-radius: 25px;
-            padding: 12px 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-            color: var(--dark-blue);
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stagger-animation .fade-in:nth-child(1) { animation-delay: 0.1s; }
-        .stagger-animation .fade-in:nth-child(2) { animation-delay: 0.2s; }
-        .stagger-animation .fade-in:nth-child(3) { animation-delay: 0.3s; }
-        .stagger-animation .fade-in:nth-child(4) { animation-delay: 0.4s; }
-        .stagger-animation .fade-in:nth-child(5) { animation-delay: 0.5s; }
-        .stagger-animation .fade-in:nth-child(6) { animation-delay: 0.6s; }
-
-        .pulse-icon {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @media (max-width: 768px) {
-            .page-hero {
-                padding: 2rem 0;
-            }
-            
-            .section-card {
-                margin-bottom: 2rem;
-            }
-            
-            .service-card:hover {
-                transform: translateY(-4px) scale(1.02);
-            }
-            
-            .counselor-card:hover {
-                transform: translateY(-5px);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/e-hayag.css">
+    <link rel="stylesheet" href="{{ asset('css/services.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
 @endsection
 
 @section('content')
+    @php
+    $service_icons = [
+        'book-open', 'heart', 'star', 
+        'lightbulb', 'shield', 'users'
+    ];
+    @endphp
 
-<!-- Hero Section -->
-<div class="page-hero">
-    <div class="container hero-content">
-        <div class="text-center">
-            <h1 class="display-4 fw-bold mb-3 floating">Welcome to Our Counseling Center</h1>
-            <p class="lead mb-0">Empowering students through professional guidance and support</p>
-        </div>
-    </div>
-</div>
+    <!-- Hero Section -->
+                                        <div class="services-header-hero">
+                                            <div class="container animate-hero-content">
+                                                <h1 class="services-main-title">
+                                                    Welcome to Our <span class="highlight">Counseling Center</span>
+                                                </h1>
+                                                <div class="ehayag-underline"></div>
+                                                <p class="hero-subtitle">Empowering students through professional guidance and support</p>
+                                                <div class="hero-buttons">
+                                                    <a href="#services-offered" class="hero-btn primary">Explore Services</a>
+                                                    <a href="#consultation-section" class="hero-btn secondary">Book Consultation</a>
+                                                </div>
+                                            </div>
+                                        </div>
 
-<div class="container page-container">
-
-    <!-- SERVICES OFFERED -->
-    <div class="section-card p-5">
-        <div class="section-header">
-            <h2 class="display-5 fw-bold mb-0">
-                <i class="fas fa-hand-holding-heart me-3 pulse-icon"></i>
-                Services Offered
-            </h2>
-        </div>
-        
-        <div class="row stagger-animation" id="services-list">
-            @foreach($services as $index => $service)
-                <div class="col-lg-4 col-md-6 mb-4 fade-in {{ $index >= 3 ? 'hidden-service' : '' }}">
-                    <a href="{{ route('user.services.details', $service->id) }}" class="text-decoration-none">
-                        <div class="service-card h-100 p-4 text-center shadow-sm">
-                            <div class="service-icon">
-                                <i class="fas fa-{{-- {{ $this->getServiceIcon($index) }} --}} text-white fs-4"></i>
-                            </div>
-                            <h4 class="text-blue mb-3 fw-bold">{{ $service->name }}</h4>
-                            <p class="text-muted mb-0">{{ Str::limit(strip_tags($service->description), 120, '...') }}</p>
-                        </div>
-                    </a>
+    <div class="container">
+        <section class="services-section counselors-section-new" id="services-offered">
+            <div class="counselor-header">
+                <div class="service-card-icon">
+                    <i data-lucide="book-marked" class="pulse-icon"></i>
                 </div>
-            @endforeach
-        </div>
+                <h2 class="services-section-title">Services Offered</h2>
+                <p class="services-subtitle services-subtitle--counselor">Comprehensive support services designed to help you thrive academically, personally, and professionally.</p>
+            </div>
+
+            <div class="services-cards-container row g-4" id="services-list">
+                @foreach($services as $index => $service)
+                    <div class="col-lg-4 col-md-6 @if($index >= 3) hidden-service @endif">
+                        <a href="{{ route('user.services.details', $service->id) }}" class="service-card d-block h-100 text-decoration-none">
+                            <div class="service-card-icon">
+                                <i data-lucide="{{ $service_icons[$index % count($service_icons)] }}"></i>
+                            </div>
+                            <h3 class="service-card-title">{{ $service->name }}</h3>
+                            <p class="service-card-desc">{{ Str::limit(strip_tags($service->description), 150, '...') }}</p>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
 
         @if(count($services) > 3)
-            <div class="text-center mt-4">
-                <button id="toggle-services-btn" class="btn btn-secondary px-5 py-3">
-                    <i class="fas fa-plus me-2"></i>Show All Services
+            <div class="text-center" style="margin-top: 3rem;">
+                <button id="toggle-services-btn" class="toggle-btn">
+                    <i data-lucide="plus" class="w-5 h-5"></i>
+                    <i data-lucide="minus" class="w-5 h-5" style="display: none;"></i>
+                    <span>Show All Services</span>
                 </button>
             </div>
         @endif
-    </div>
 
-    <!-- COUNSELOR INFORMATION -->
-    <div class="section-card p-5">
-        <div class="section-header">
-            <h2 class="display-5 fw-bold mb-0">
-                <i class="fas fa-users me-3 pulse-icon"></i>
-                Meet Our Expert Counselors
-            </h2>
-        </div>
+        <!-- COUNSELOR INFORMATION -->
+        <section class="services-section counselors-section-new" id="counselors-section">
+            <div class="counselor-header">
+                <div class="service-card-icon">
+                    <i data-lucide="users" class="pulse-icon"></i>
+                </div>
+                <h2 class="services-section-title">Meet Our Expert Counselors and Psychometrician</h2>
+                <p class="services-subtitle services-subtitle--counselor">Our dedicated team of professional counselors is here to support your journey</p>
+            </div>
+            
+            <div id="counselor-reveal-trigger">
+                <div class="counselor-hero-container">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-lg-5">
+                            <img src="{{ asset('counselors/all.jpg') }}" alt="NU Laguna Guidance Services" class="img-fluid rounded-3 shadow-sm">
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="counselor-hero-description text-center text-lg-start">
+                                <h3 class="counselor-hero-description__title">Need someone to talk to?</h3>
+                                <p>Let's meet the heart of NU's Center for Guidance Services— the competent and passionate professionals who are committed to your personal growth and well-being.</p>
+                                <p>Don't hesitate to reach out; they are here to help you navigate your challenges and achieve your goals! 💛💙</p>
+                                <blockquote class="counselor-hero-description__quote">
+                                    "Call to me, and I will answer you, and I will tell you great and hidden things that you do not know."
+                                    <cite class="counselor-hero-description__cite">Jeremiah 33:3</cite>
+                                </blockquote>
+                                <p class="counselor-hero-description__hashtags">
+                                    #GuidanceThatCares<br>
+                                    #MeetOurCounselors #HereToHelp<br>
+                                    #centerforguidanceservices<br>
+                                    #NULaguna
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="counselor-reveal-trigger__toggle-wrapper">
+                    <button id="toggle-counselors-btn" class="toggle-btn">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                        <span>Meet Our Counselors and Psychometrician</span>
+                    </button>
+                </div>
+            </div>
 
-        <div id="counselors-container" class="mt-4" style="display: none;">
-            <div class="row stagger-animation">
+            <div class="row g-4" id="counselors-grid" style="display: none; margin-top: 3rem;">
                 @foreach($counselors as $counselor)
-                    <div class="col-lg-4 col-md-6 mb-4 fade-in">
-                        <div class="counselor-card text-center shadow-sm p-4 h-100">
-                            <a href="{{ route('user.counselors.details', $counselor->id) }}" class="text-decoration-none text-dark">
-                                <img src="{{ asset('storage/' . $counselor->image) }}" alt="{{ $counselor->name }}" class="teacher-avatar mb-3">
-                                <h4 class="text-blue fw-bold mb-2">{{ $counselor->name }}</h4>
-                                <p class="text-muted fw-semibold mb-1">{{ $counselor->position }}</p>
-                                <p class="text-muted small">{{ $counselor->college }}</p>
-                                <div class="mt-3">
-                                    <span class="badge bg-light text-blue px-3 py-2">
-                                        <i class="fas fa-graduation-cap me-1"></i>Expert Counselor
-                                    </span>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="{{ route('user.counselors.details', $counselor->id) }}" class="counselor-card-link-new d-block h-100">
+                            <div class="counselor-card-new h-100">
+                                <div class="counselor-avatar-wrapper-new">
+                                    <img src="{{ asset($counselor->image) }}" alt="{{ $counselor->name }}" class="counselor-avatar-new">
+                                    <span class="counselor-badge">Expert</span>
                                 </div>
+                                <div class="counselor-info-new">
+                                    <h3 class="counselor-name-new">{{ $counselor->name }}</h3>
+                                    <p class="counselor-position-new">{{ $counselor->position }}</p>
+                                    <p class="counselor-department-new">{{ $counselor->college }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+
+        <!-- CONSULTATION LINKS -->
+        <section class="services-section counselors-section-new" id="consultation-section">
+            <div class="counselor-header">
+                <div class="service-card-icon">
+                    <i data-lucide="calendar" class="pulse-icon"></i>
+                </div>
+                <h2 class="services-section-title">Schedule Your Consultation</h2>
+                <p class="services-subtitle services-subtitle--counselor">Take the first step towards positive change. Book your consultation today</p>
+            </div>
+
+            <div class="row g-6 justify-content-center">
+                @foreach($consultations as $consultation)
+                    <div class="col-lg-13">
+                        <div class="consultation-card-item-new h-100">
+                            <div class="service-card-icon">
+                                <i data-lucide="brain"></i>
+                            </div>
+                            <h3 class="consultation-card-item-title-new">{{ $consultation->name }}</h3>
+                            <p class="consultation-card-item-desc-new">{{ strip_tags($consultation->description) }}</p>
+                            <a href="{{ $consultation->request_link }}" target="_blank" class="consultation-button-new">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                                <span>Request Consultation</span>
                             </a>
                         </div>
                     </div>
                 @endforeach
             </div>
-        </div>
-
-        <div class="text-center mt-4">
-            <button id="toggle-counselors-btn" class="btn btn-primary px-5 py-3">
-                <i class="fas fa-user-friends me-2"></i>Meet Our Counselors
-            </button>
-        </div>
+        </section>
     </div>
-
-    <!-- CONSULTATION LINKS -->
-    <div class="section-card p-5">
-        <div class="section-header">
-            <h2 class="display-5 fw-bold mb-0">
-                <i class="fas fa-calendar-check me-3 pulse-icon"></i>
-                Schedule Your Consultation
-            </h2>
-        </div>
-        
-        <div class="row justify-content-center">
-            @foreach($consultations as $consultation)
-                <div class="col-lg-6 col-md-8 mb-4">
-                    <div class="consultation-link shadow-sm p-5 text-center h-100">
-                        <div class="mb-4">
-                            <i class="fas fa-comments text-blue fs-1 mb-3"></i>
-                            <h4 class="text-blue mb-3 fw-bold">{{ $consultation->name }}</h4>
-                            <p class="text-muted mb-4">{{ $consultation->description }}</p>
-                        </div>
-                        <a href="{{ $consultation->request_link }}" target="_blank" class="btn btn-primary px-5 py-3">
-                            <i class="fas fa-external-link-alt me-2"></i>Request Consultation
-                        </a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-
-</div>
 
 @endsection
 
 @section('scripts')
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="{{ asset('js/animations.js') }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Services toggle functionality
-        const servicesBtn = document.getElementById('toggle-services-btn');
-        const hiddenServices = document.querySelectorAll('.hidden-service');
-
-        if (servicesBtn) {
-            servicesBtn.addEventListener('click', function () {
+        lucide.createIcons();
+        const toggleBtn = document.getElementById('toggle-services-btn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+                const hiddenServices = document.querySelectorAll('.hidden-service');
                 const isHidden = hiddenServices[0].style.display === 'none' || hiddenServices[0].style.display === '';
-                
-                hiddenServices.forEach((service, index) => {
-                    if (isHidden) {
-                        setTimeout(() => {
-                            service.style.display = 'block';
-                            service.classList.add('fade-in');
-                        }, index * 100);
-                    } else {
-                        service.style.display = 'none';
-                        service.classList.remove('fade-in');
-                    }
+
+                hiddenServices.forEach(service => {
+                    service.style.display = isHidden ? 'block' : 'none';
                 });
-                
-                const icon = servicesBtn.querySelector('i');
+
+                const btnText = toggleBtn.querySelector('span:last-child');
+                const plusIcon = toggleBtn.querySelector('i[data-lucide="plus"]');
+                const minusIcon = toggleBtn.querySelector('i[data-lucide="minus"]');
+                const plusIconSvg = toggleBtn.querySelector('.lucide-plus');
+                const minusIconSvg = toggleBtn.querySelector('.lucide-minus');
+
                 if (isHidden) {
-                    servicesBtn.innerHTML = '<i class="fas fa-minus me-2"></i>Show Less';
+                    btnText.textContent = 'Show Less Services';
+                    if(plusIconSvg) plusIconSvg.style.display = 'none';
+                    if(minusIconSvg) minusIconSvg.style.display = 'inline-block';
                 } else {
-                    servicesBtn.innerHTML = '<i class="fas fa-plus me-2"></i>Show All Services';
+                    btnText.textContent = 'Show All Services';
+                    if(plusIconSvg) plusIconSvg.style.display = 'inline-block';
+                    if(minusIconSvg) minusIconSvg.style.display = 'none';
                 }
             });
         }
+        
+        // Counselors toggle
+        const toggleCounselorsBtn = document.getElementById('toggle-counselors-btn');
+        const counselorsGrid = document.getElementById('counselors-grid');
+        const counselorRevealTrigger = document.getElementById('counselor-reveal-trigger');
+        const counselorsSection = document.getElementById('counselors-section');
 
-        // Counselors toggle functionality
-        const counselorsBtn = document.getElementById('toggle-counselors-btn');
-        const container = document.getElementById('counselors-container');
-
-        counselorsBtn.addEventListener('click', function () {
-            container.style.display = 'block';
-            counselorsBtn.style.display = 'none';
-            
-            // Trigger staggered animation for counselor cards
-            const counselorCards = container.querySelectorAll('.fade-in');
-            counselorCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.animationDelay = `${index * 0.1}s`;
-                }, 100);
+        if (toggleCounselorsBtn) {
+            toggleCounselorsBtn.addEventListener('click', function() {
+                counselorsGrid.style.display = 'flex';
+                counselorRevealTrigger.style.display = 'none';
+                counselorsSection.scrollIntoView({ behavior: 'smooth' });
             });
-        });
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections for scroll animations
-        document.querySelectorAll('.section-card').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Add smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add loading states to buttons
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                if (this.getAttribute('href') && this.getAttribute('target') === '_blank') {
-                    const originalText = this.innerHTML;
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Opening...';
-                    setTimeout(() => {
-                        this.innerHTML = originalText;
-                    }, 2000);
-                }
-            });
-        });
+        }
     });
-
-    // Helper function for service icons (you can customize this based on your services)
-    function getServiceIcon(index) {
-        const icons = [
-            'user-graduate', 'heart', 'brain', 'hands-helping', 
-            'comments', 'shield-alt', 'lightbulb', 'users',
-            'smile', 'book-open', 'puzzle-piece', 'star'
-        ];
-        return icons[index % icons.length];
-    }
 </script>
 @endsection
 

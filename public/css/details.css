@@ -1,0 +1,269 @@
+body, main {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background-color: #f8f9fa;
+}
+
+.details-header {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.details-main-title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+}
+
+.details-subtitle {
+    font-size: 1.15rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.details-main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.details-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.details-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.details-card-title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 1.5rem;
+    color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.service-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+}
+
+.back-btn {
+    background-color: transparent;
+    color: #1e40af;
+    border: 2px solid #1e40af;
+    padding: 12px 30px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #1e40af;
+    color: #fff;
+}
+
+.feature-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: #1e40af;
+}
+
+.details-header-hero {
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    max-width: 100vw;
+    background: linear-gradient( to right, rgba(53, 64, 142, 0.948) 0%, rgba(53, 64, 142, 0.75) 75%, rgba(53, 64, 142, 0.485) 90%, rgba(53, 64, 142, 0.473) 100% ), url('/ehayaggg.jpg') center/cover no-repeat;
+    border-radius: 0;
+    padding: 2rem;
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    margin-bottom: 2rem;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.details-main-title {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.details-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.details-card {
+    background: #fff;
+    border-radius: 28px;
+    box-shadow: 0 4px 24px rgba(44, 62, 94, 0.08);
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.details-card-title .material-icons {
+    font-size: 28px;
+}
+
+.counselor-info-container {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.counselor-info-avatar-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.counselor-info-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 0 0 4px #ffd700;
+    transition: transform 0.3s ease;
+}
+
+.counselor-info-avatar:hover {
+    transform: scale(1.05);
+}
+
+.counselor-info-details p {
+    margin-bottom: 0.75rem;
+    font-size: 17px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.counselor-info-details p a {
+    color: #1e40af;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.schedule-day-card {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.schedule-day-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.schedule-day-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.schedule-times {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule-time-slot {
+    background: #eef2ff;
+    color: #4338ca;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* New schedule styles */
+.schedule-list {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule-list-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.schedule-list-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-day {
+    font-weight: 600;
+    color: #1e3a8a;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.schedule-time-slot {
+    background: #eef2ff;
+    color: #4338ca;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+} 

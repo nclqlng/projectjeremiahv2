@@ -3,15 +3,18 @@
 @section('styles')
     @vite('resources/css/styles.css')
     <link rel="stylesheet" href="/css/welcome.css">
+    <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQD8R1pWIUyo1q9Wl+0I1hKf6UksdQRVvoxMfooAo8y" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 @endsection
 
 @section('content')
 
 <!-- Welcome Header -->
 <div class="welcome-header-hero">
-    <div class="container">
+    <div class="container animate-hero-content">
         <h1 class="welcome-main-title">
             NU LAGUNA<br>
             CENTER FOR GUIDANCE SERVICES
@@ -43,10 +46,10 @@
 <link rel="stylesheet" href="/css/motivation.css">
 <script src="/js/motivation.js"></script>
 
-<div class="welcome-cards">
+<div class="welcome-cards stagger-animation">
 
 
-    <div class="welcome-card">
+    <div class="welcome-card fade-in">
         <div class="welcome-card-icon">
             <span class="material-icons">call</span>
         </div>
@@ -56,7 +59,7 @@
         </div>
         <a href="#" class="welcome-card-link"><br>View</a>
     </div>
-    <div class="welcome-card">
+    <div class="welcome-card fade-in">
         <div class="welcome-card-icon">
             <span class="material-icons">notifications</span>
         </div>
@@ -66,9 +69,10 @@
         </div>
         <a href="#" class="welcome-card-link"><br>View</a>
     </div>
-    <div class="welcome-card">
+    <div class="welcome-card fade-in">
         <div class="welcome-card-icon">
-            <span class="material-icons">campaign</span>
+            <i class="bi bi-chat-dots-fill"></i>
+
         </div>
         <div class="welcome-card-title">e-Hayag</div>
         <div class="welcome-card-desc">

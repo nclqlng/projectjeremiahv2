@@ -1,0 +1,96 @@
+/* General Animation Keyframes & Classes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    30% { 
+        opacity: 0.6;
+    }
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.stagger-animation .fade-in:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation .fade-in:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation .fade-in:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation .fade-in:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation .fade-in:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation .fade-in:nth-child(6) { animation-delay: 0.6s; }
+
+.pulse-icon {
+    animation: pulse 2s infinite;
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Scroll-triggered animations */
+.services-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.services-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Counselors list toggle animation */
+#counselors-list {
+    transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.7s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+#counselors-list.show {
+    opacity: 1;
+    margin-top: 2rem;
+    max-height: 1000px; 
+}
+
+/* Animation for Header Hero Content on page load */
+.animate-hero-content > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation-name: fadeInUp;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.animate-hero-content > *:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.animate-hero-content > *:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.animate-hero-content > *:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.animate-hero-content > *:nth-child(4) {
+    animation-delay: 0.8s;
+} 

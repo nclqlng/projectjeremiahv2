@@ -6,9 +6,17 @@
     --nu-blue: #35408E;
     --nu-gold: #FFCC33;
     --nu-light: #FFFFFF;
-    --nu-gray: #F8F9FA;
+    --nu-gray: #F5F9FF;
     --nu-success: #0D6EFD;
-    --nu-blue-light: #E6E8F5;
+    --nu-blue-light: #F5F9FF;
     --nu-blue-lighter: #F5F6FB;
     --nu-gold-light: #FFF5D9;
 }
+body, main {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    overflow-x: hidden;
+      
+}
+
+

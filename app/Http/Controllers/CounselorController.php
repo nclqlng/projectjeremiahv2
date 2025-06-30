@@ -10,7 +10,7 @@ class CounselorController extends Controller
     //
     public function showCounselor($id)
     {
-        $counselor = Counselor::findOrFail($id);
+        $counselor = Counselor::with('schedules')->findOrFail($id);
         return view('user.services.counselor_details', compact('counselor'));
     }
 }
